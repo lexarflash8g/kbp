@@ -12,15 +12,7 @@ pipeline:
       - cd frontend
       - npm i redis --save
       - npm test
-
-  publish-redis:
-    image: plugins/docker
-    dockerfile: ./redis/Dockerfile
-    context: ./redis
-    repo: lexarflash8g/redis
-    tags: [latest, v2]
-    secrets: [ docker_username, docker_password ]
-
+      
   publish-frontend:
     image: plugins/docker
     dockerfile: ./frontend/Dockerfile
